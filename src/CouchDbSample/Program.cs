@@ -11,6 +11,7 @@ namespace Unifeso.Db.CouchDbSample
         public static async Task Main(string[] args)
         {
             await using var context = new CouchDbContext();
+            
             // Create person
             await context.CreatePersonAsync();
             

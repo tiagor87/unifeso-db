@@ -8,7 +8,19 @@ services:
     environment:
       - COUCHDB_USER=admin
       - COUCHDB_PASSWORD=password
-        
+  raven-db:
+    image: ravendb/ravendb:latest
+    ports:
+      - 8080:8080
+    volumes:
+      - unifeso-db-ravendb-data:/opt/RavenDB/Server/RavenData
+      - unifeso-db-ravendb-config:/opt/RavenDB/config
+    environment:
+      - RAVEN_ARGS='--Setup.Mode=None'
+      - RAVEN_Security_UnsecuredAccessAllowed='True'
+
 volumes:
   unifeso-db-couchdb: {}
+  unifeso-db-ravendb-config: {}
+  unifeso-db-ravendb-data: {}
     
