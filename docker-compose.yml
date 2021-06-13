@@ -1,0 +1,14 @@
+services:
+  couch-db:
+    image: couchdb:latest
+    ports:
+      - 5984:5984
+    volumes:
+      - unifeso-db-couchdb:/opt/couchdb/data
+    environment:
+      - COUCHDB_USER=admin
+      - COUCHDB_PASSWORD=password
+        
+volumes:
+  unifeso-db-couchdb: {}
+    
